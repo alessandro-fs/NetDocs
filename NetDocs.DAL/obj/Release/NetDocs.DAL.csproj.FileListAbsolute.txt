@@ -1,0 +1,14 @@
+C:\Projetos\Git\NetDocs\NetDocs.DAL\bin\Release\Stefanini.QT.NetDocs.DAL.dll.config
+C:\Projetos\Git\NetDocs\NetDocs.DAL\bin\Release\Stefanini.QT.NetDocs.DAL.dll
+C:\Projetos\Git\NetDocs\NetDocs.DAL\bin\Release\Stefanini.QT.NetDocs.DAL.pdb
+C:\Projetos\Git\NetDocs\NetDocs.DAL\bin\Release\EntityFramework.dll
+C:\Projetos\Git\NetDocs\NetDocs.DAL\bin\Release\EntityFramework.SqlServer.dll
+C:\Projetos\Git\NetDocs\NetDocs.DAL\bin\Release\Stefanini.QT.NetDocs.Model.dll
+C:\Projetos\Git\NetDocs\NetDocs.DAL\bin\Release\Stefanini.QT.NetDocs.Model.pdb
+C:\Projetos\Git\NetDocs\NetDocs.DAL\bin\Release\EntityFramework.xml
+C:\Projetos\Git\NetDocs\NetDocs.DAL\bin\Release\EntityFramework.SqlServer.xml
+C:\Projetos\Git\NetDocs\NetDocs.DAL\obj\Release\NetDocs.DAL.csprojAssemblyReference.cache
+C:\Projetos\Git\NetDocs\NetDocs.DAL\obj\Release\NetDocs.DAL.csproj.CoreCompileInputs.cache
+C:\Projetos\Git\NetDocs\NetDocs.DAL\obj\Release\NetDocs.DAL.csproj.CopyComplete
+C:\Projetos\Git\NetDocs\NetDocs.DAL\obj\Release\Stefanini.QT.NetDocs.DAL.dll
+C:\Projetos\Git\NetDocs\NetDocs.DAL\obj\Release\Stefanini.QT.NetDocs.DAL.pdb

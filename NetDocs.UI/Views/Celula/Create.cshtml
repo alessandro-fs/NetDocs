@@ -1,0 +1,49 @@
+﻿@model NetDocs.UI.ViewModels.CelulaViewModel
+@{ViewBag.Title = string.Format(Resources.Resource1.SiteMapCadastrar, Resources.Resource1.MenuCelula);}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+        <!--BOTÕES-->
+        <div class="control-group" style="text-align:left;">
+            <div class="controls">
+                @Html.ActionLink(@Resources.Resource1.Voltar, "Index", new { Pagina = ViewBag.PaginaAtual, Ordenacao = ViewBag.Ordenacao, FiltrarNome = ViewBag.NomeCorrente }, new { @class = "btn btn-default" })
+                <input type="submit" id="btnSalvar" value="@Resources.Resource1.Salvar" class="btn btn-primary" />
+            </div>
+        </div>
+        <hr />
+        @Html.ValidationSummary(false, string.Empty, new { @class = "alert alert-warning error-label" })
+        <div class="panel-body panel panel-default">
+            <div class="form-group">
+                @Html.DisplayName(@Resources.Resource1.Nome)
+                @Html.ValidationMessageFor(model => model.Nome, "*")
+                @Html.EditorFor(model => model.Nome, new { @id = "Nome", htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DataCadastro, new { @class = "control-label" })
+                @Html.ValidationMessageFor(model => model.DataCadastro, "*")
+                @Html.EditorFor(model => model.DataCadastro, new { @id = "DataCadastro", htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.UsuarioCadastro, new { @class = "control-label" })
+                @Html.ValidationMessageFor(model => model.UsuarioCadastro, "*")
+                @Html.EditorFor(model => model.UsuarioCadastro, new { @id = "UsuarioCadastro", htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+            </div>            
+        </div>
+        <hr />
+        <!--BOTÕES-->
+        <div class="control-group" style="text-align:left;">
+            <div class="controls">
+                @Html.ActionLink(@Resources.Resource1.Voltar, "Index", new { Pagina = ViewBag.PaginaAtual, Ordenacao = ViewBag.Ordenacao, FiltrarNome = ViewBag.NomeCorrente }, new { @class = "btn btn-default" })
+                <input type="submit" id="btnSalvarRodape" value="@Resources.Resource1.Salvar" class="btn btn-primary" />
+            </div>
+        </div>    
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<!--LOADING MESSAGE BUTTONS-->
+@Html.Partial("_LoadingClickPartial")

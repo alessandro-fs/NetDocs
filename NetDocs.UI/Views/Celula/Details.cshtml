@@ -1,0 +1,55 @@
+﻿@model NetDocs.UI.ViewModels.CelulaViewModel
+@{ViewBag.Title = string.Format(Resources.Resource1.SiteMapDetalhes, Resources.Resource1.MenuCelula);}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+        <!--BOTÕES-->
+        <div class="control-group" style="text-align:left;">
+            <div class="controls">
+                @Html.ActionLink(@Resources.Resource1.Voltar, "Index", new { Pagina = ViewBag.PaginaAtual, Ordenacao = ViewBag.Ordenacao, FiltrarNome = ViewBag.NomeCorrente }, new { @class = "btn btn-default" })
+            </div>
+        </div>
+        <hr />
+        @Html.ValidationSummary(false, string.Empty, new { @class = "alert alert-warning error-label" })
+        <div class="panel-body panel panel-default">
+            <div class="form-group">
+                @Html.HiddenFor(model => model.CelulaId)
+                @Html.LabelFor(model => model.Nome, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Nome, new { @id = "Nome", @class = "form-control", disabled = "disabled" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DataCadastro, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.DataCadastro, new { @id = "DataCadastro", @class = "form-control", disabled = "disabled" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.UsuarioCadastro, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.UsuarioCadastro, new { @id = "UsuarioCadastro", @class = "form-control", disabled = "disabled" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DataAlteracao, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.DataAlteracao, new { @id = "DataAlteracao", @class = "form-control", disabled = "disabled" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.UsuarioAlteracao, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.UsuarioAlteracao, new { @id = "UsuarioAlteracao", @class = "form-control", disabled = "disabled" })
+            </div>
+        </div>
+        <hr />
+        <!--BOTÕES-->
+        <div class="control-group" style="text-align:left;">
+            <div class="controls">
+                @Html.ActionLink(@Resources.Resource1.Voltar, "Index", new { Pagina = ViewBag.PaginaAtual, Ordenacao = ViewBag.Ordenacao, FiltrarNome = ViewBag.NomeCorrente }, new { @class = "btn btn-default" })
+            </div>
+        </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<!--LOADING MESSAGE BUTTONS-->
+@Html.Partial("_LoadingClickPartial")

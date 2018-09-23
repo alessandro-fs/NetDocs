@@ -1,0 +1,6 @@
+C:\Projetos\Git\NetDocs\NetDocs.Model\bin\Release\Stefanini.QT.NetDocs.Model.dll
+C:\Projetos\Git\NetDocs\NetDocs.Model\bin\Release\Stefanini.QT.NetDocs.Model.pdb
+C:\Projetos\Git\NetDocs\NetDocs.Model\obj\Release\NetDocs.Model.csprojAssemblyReference.cache
+C:\Projetos\Git\NetDocs\NetDocs.Model\obj\Release\NetDocs.Model.csproj.CoreCompileInputs.cache
+C:\Projetos\Git\NetDocs\NetDocs.Model\obj\Release\Stefanini.QT.NetDocs.Model.dll
+C:\Projetos\Git\NetDocs\NetDocs.Model\obj\Release\Stefanini.QT.NetDocs.Model.pdb

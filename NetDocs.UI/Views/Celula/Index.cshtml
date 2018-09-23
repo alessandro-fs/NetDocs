@@ -1,0 +1,143 @@
+﻿@model PagedList.IPagedList<NetDocs.Model.Entities.Celula>
+@using PagedList;
+@using PagedList.Mvc;
+@{ViewBag.Title = Resources.Resource1.MenuCelula;}
+
+    @Html.Partial("_NotificationsPartial")    
+    <!--BOTÕES-->
+    <a href="/Celula/Create" class="btn btn-default" title="@Resources.Resource1.NovoItem">
+        <i aria-hidden="true" class="glyphicon glyphicon-plus"></i>
+    </a>
+
+    <button id="btnPopupFiltro" type="button" title="@Resources.Resource1.Filtrar" class="btn btn-default" data-toggle="modal" data-target="#myModal2">
+        <span class="glyphicon glyphicon-filter" aria-hidden="true"></span>
+    </button>
+
+    @using (Html.BeginForm("Index", "Celula", FormMethod.Get))
+    {
+    <!--POPUP FILTRO-->
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="H1">@Resources.Resource1.Filtrar</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class='form-group'>
+                            @Html.TextBox("FiltrarNome", ViewBag.NomeCorrente as string, new { id = "FiltrarNome", @class = "form-control" })
+                            <script>document.getElementById("FiltrarNome").disableValidation = true;</script>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input id="btnFechaFiltrar" type="button" value="@Resources.Resource1.Fechar" class="btn btn-default" data-dismiss="modal" />
+                        <input id="btnFiltrar" type="submit" value="@Resources.Resource1.Filtrar" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!--POPUP PAGEGO-->
+        <div class="modal fade" id="myModalPageGo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;">
+            <div class="modal-dialog" style="width:300px;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="H2">Página atual&nbsp;<b>@ViewBag.PaginaAtual</b></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class='form-group'>
+                            Ir para
+                            @Html.TextBox("pagina", ViewBag.PaginaAtual as string, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input id="btnFecharIrPara" type="button" value="Fechar" class="btn btn-default" data-dismiss="modal" />
+                        <input id="btnIrPara" type="submit" value="Ir" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--GRIDVIEW-->
+        <div class="text-center">@MvcHtmlString.Create(ViewBag.TotalRegistros)</div>
+        <table class="table">
+            <tr class="header-style">
+                <th>
+                    @Html.ActionLink(Resources.Resource1.Nome, "Index", new { Pagina = ViewBag.PaginaAtual, Ordenacao = ViewBag.OrdemPor, FiltrarNome = ViewBag.NomeCorrente }, new { @class = "black-link" })
+                </th>
+                <th>@Resources.Resource1.DataCadastro</th>
+                <th>@Resources.Resource1.UsuarioCadastro</th>
+                <th>@Resources.Resource1.DataAlteracao</th>
+                <th>@Resources.Resource1.UsuarioAlteracao</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr class="row-style">
+                    <td>
+                        <!-- MENU DE AÇÕES -->
+                        <div class="btn-group">
+                            <label class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="font-weight:normal;">
+                                @Html.DisplayFor(modelItem => item.Nome)&nbsp<span id="caret" class="caret"></span>
+                            </label>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink(@Resources.Resource1.Alterar, "Edit", new { id = item.CelulaId, Q = ViewBag.NomeCorrente, Pagina = ViewBag.PaginaAtual, Ordenacao = ViewBag.Ordenacao })</li>
+                                <li>@Html.ActionLink(@Resources.Resource1.Detalhes, "Details", new { id = item.CelulaId, Pagina = ViewBag.PaginaAtual, Ordenacao = ViewBag.Ordenacao, FiltrarNome = ViewBag.NomeCorrente })</li>
+                                <li><a onclick="SetDeleteActionController('@item.CelulaId','@item.Nome','Celula');" data-toggle="modal" data-target="#DeleteModal" style="cursor:pointer;">@Resources.Resource1.Excluir</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataCadastro)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UsuarioCadastro)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataAlteracao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UsuarioAlteracao)
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <!--PAGINAÇÃO-->
+        <div class="text-center" id="paginacao">
+            @Html.PagedListPager(Model, Pagina => Url.Action("Index", new { Pagina, Ordenacao = ViewBag.Ordenacao, FiltrarNome = ViewBag.NomeCorrente }), new PagedListRenderOptions { MaximumPageNumbersToDisplay = 5 })
+            @Html.Partial("_PageGoToPartial")
+        </div>
+    }
+
+    <!--POPUP DELETE-->
+    @using (Html.BeginForm("Delete", "Celula", FormMethod.Post, new { id = "formDelete" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="H3">@ViewBag.NomeAplicacao</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class='form-group'>
+                            @MvcHtmlString.Create(string.Format(@Resources.Resource1.PerguntaExcluir, "<span id=\"NomeRegistroExcluir\" class=\"control-label bold\"></span>"))
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input id="btnFecharExcluir" type="button" value="@Resources.Resource1.Fechar" class="btn btn-default" data-dismiss="modal" />
+                        <input id="btnExcluir" type="submit" value="@Resources.Resource1.Excluir" class="btn btn-danger btn" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--HIDDEN FIELDS-->
+        @Html.Hidden("Ordenacao")
+        @Html.Hidden("Pagina")
+        @Html.Hidden("FiltrarNome")
+    }
+
+    <!--LOADING MESSAGE BUTTONS-->
+    @Html.Partial("_LoadingClickPartial")

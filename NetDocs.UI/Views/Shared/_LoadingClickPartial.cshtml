@@ -1,0 +1,19 @@
+﻿
+<script type="text/javascript">
+    function DisableButtons() {
+        var inputs = document.getElementsByTagName("INPUT");
+        for (var i in inputs) {
+            if (inputs[i].type == "button" || inputs[i].type == "submit") {
+                if (inputs[i].id == "btnFiltrar" || inputs[i].id == "btnFecharFiltrar" ||
+                    inputs[i].id == "btnExcluir" || inputs[i].id == "btnIrPara" ||
+                    inputs[i].id == "btnSalvar" || inputs[i].id == "btnSalvarRodape") {
+                    inputs[i].disabled = true;
+                    inputs[i].value = $('<div/>').html("@Resources.Resource1.Carregando").text();
+
+
+                }
+            }
+        }
+    }
+    window.onbeforeunload = DisableButtons;
+</script>

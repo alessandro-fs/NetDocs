@@ -1,0 +1,10 @@
+C:\Projetos\TeamFoundationServer\NetDocs\NetDocs\NetDocs.Model\bin\Debug\Stefanini.QT.NetDocs.Model.dll
+C:\Projetos\TeamFoundationServer\NetDocs\NetDocs\NetDocs.Model\bin\Debug\Stefanini.QT.NetDocs.Model.pdb
+C:\Projetos\TeamFoundationServer\NetDocs\NetDocs\NetDocs.Model\obj\Debug\Stefanini.QT.NetDocs.Model.dll
+C:\Projetos\TeamFoundationServer\NetDocs\NetDocs\NetDocs.Model\obj\Debug\Stefanini.QT.NetDocs.Model.pdb
+C:\Projetos\TeamFoundationServer\NetDocs\NetDocs\NetDocs.Model\obj\Debug\NetDocs.Model.csprojResolveAssemblyReference.cache
+C:\Projetos\Git\NetDocs\NetDocs.Model\bin\Debug\Stefanini.QT.NetDocs.Model.dll
+C:\Projetos\Git\NetDocs\NetDocs.Model\bin\Debug\Stefanini.QT.NetDocs.Model.pdb
+C:\Projetos\Git\NetDocs\NetDocs.Model\obj\Debug\NetDocs.Model.csproj.CoreCompileInputs.cache
+C:\Projetos\Git\NetDocs\NetDocs.Model\obj\Debug\Stefanini.QT.NetDocs.Model.dll
+C:\Projetos\Git\NetDocs\NetDocs.Model\obj\Debug\Stefanini.QT.NetDocs.Model.pdb
