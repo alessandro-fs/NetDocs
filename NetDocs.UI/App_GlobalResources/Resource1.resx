@@ -231,4 +231,7 @@
   <data name="SiteMapDetalhes" xml:space="preserve">
     <value>Detalhes de {0}</value>
   </data>
+  <data name="_Versao" xml:space="preserve">
+    <value>1.0.0</value>
+  </data>
 </root>
